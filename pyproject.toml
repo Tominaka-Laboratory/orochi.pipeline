@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=62.0", "setuptools-git-versioning>=2.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "orochi.pipeline"
+dynamic = ['version', 'dependencies']
+authors = [
+  { name="Satoshi Tominaka", email="tominaka.satoshi@nims.go.jp" },
+]
+maintainers = [
+  { name="Satoshi Tominaka", email="tominaka.satoshi@nims.go.jp" },
+]
+description = "High-level automated calibration and end-to-end reduction pipelines for Orochi"
+keywords = ['PDF', 'X-ray', 'Pipeline', 'Calibration', 'Synchrotron']
+readme = "README.rst"
+requires-python = ">=3.8, <3.15"
+classifiers = [
+    'Development Status :: 5 - Production/Stable',
+    'Environment :: Console',
+    'Intended Audience :: Developers',
+    'Intended Audience :: Science/Research',
+    'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python :: 3',
+    'Topic :: Scientific/Engineering :: Physics',
+    'Topic :: Scientific/Engineering :: Chemistry',
+]
+
+[project.urls]
+Homepage = "https://github.com/Tominaka-Laboratory/orochi.pipeline/"
+Issues = "https://github.com/Tominaka-Laboratory/orochi.pipeline/issues/"
+
+[tool.setuptools-git-versioning]
+enabled = true
+template = "{tag}"
+dev_template = "{tag}"
+dirty_template = "{tag}"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["*"]
+exclude = []
+namespaces = false
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements/pip.txt"]}
+
